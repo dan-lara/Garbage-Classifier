@@ -233,14 +233,14 @@ def main():
         with col1:
             st.header("Image soumise")
             with st.expander("Afficher les détails de l'image"):
-                st.write("Dimensions de l'image :", image.size)
+                st.write("Dimensions de l'image :", image2.size)
                 st.write("Mode de couleur :", image.mode)
             st.image(image2, caption="Image soumise", use_container_width=True)            
         
         if st.session_state["resnet 50"]:
             with col2:
                 start_time = time.time()
-                predicted_class, probabilities = predict_resnet(image, "microsoft/resnet-50")
+                predicted_class, probabilities = predict_resnet(image2, "microsoft/resnet-50")
                 inference_time = time.time() - start_time
                 reponse("ResNet 50", predicted_class, max(probabilities), "https://huggingface.co/microsoft/resnet-50")
                 st.caption(f"Temps d'inférence : {inference_time:.2f} secondes")
@@ -248,7 +248,7 @@ def main():
         if st.session_state["EcoMind AI"]:
             with col2:
                 start_time = time.time()
-                predicted_class, probabilities = predict_custom(image)
+                predicted_class, probabilities = predict_custom(image2)
                 inference_time = time.time() - start_time
                 reponse("EcoMind AI", predicted_class, max(probabilities), "https://huggingface.co/dan-lara/Garbage-Classifier-Resnet-50-Finetuning")
                 sorted_probs = sorted(zip(custom_classes, probabilities), key=lambda x: x[1], reverse=True)
