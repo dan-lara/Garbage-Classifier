@@ -109,7 +109,6 @@ custom_classes = ["🔋 Batterie", "📦 Carton", "🔗 Metal", "🍓 Organique"
 custom_transform = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
-    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
 # custom_transform = transforms.Compose([
 #     transforms.RandomRotation(20),
@@ -226,7 +225,7 @@ def main():
 
     if uploaded_file:
         image = Image.open(uploaded_file).convert("RGB")
-        image2 = tensor_to_pil(custom_transform(image).unsqueeze(0).squeeze(0))
+        image2 = tensor_to_pil(custom_transform(image))
         # image = image.resize((224, 224))
 
         col1, col2, col3 = st.columns([1, 1, 1])
