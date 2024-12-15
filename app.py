@@ -110,32 +110,14 @@ custom_transform = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
 ])
-# custom_transform = transforms.Compose([
-#     transforms.RandomRotation(20),
-#     transforms.RandomHorizontalFlip(),
-#     transforms.RandomResizedCrop((224, 224), scale=(0.8, 1.0)),
-#     transforms.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3),
-#     transforms.ToTensor(),
-#     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-# ])
-# IMG_SIZE = (224, 224)
-# NORMALIZE = transforms.Normalize(mean=[0.485, 0.456, 0.406],
-#                                  std=[0.229, 0.224, 0.225])
-# TO_TENSOR = transforms.ToTensor()
-
-# custom_transform = transforms.Compose([
-#     transforms.Resize(IMG_SIZE),
-#     TO_TENSOR,
-#     NORMALIZE
-# ])
-# custom_transform = transforms.Compose([
-#     transforms.RandomHorizontalFlip(),
-#     transforms.RandomRotation(10),
-#     transforms.ColorJitter(brightness=0.2, contrast=0.2),
-#     transforms.Resize((224, 224)),
-#     transforms.ToTensor(),
-#     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-# ])
+custom_transform = transforms.Compose([
+    transforms.RandomRotation(20),
+    transforms.RandomHorizontalFlip(),
+    transforms.RandomResizedCrop((224, 224), scale=(0.8, 1.0)),
+    transforms.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+])
 def tensor_to_pil(tensor):
     """
     Convertit le tenseur normalisé en image PIL.
