@@ -234,7 +234,7 @@ def main():
     st.title("♻️ Classification des Déchets ")
     st.sidebar.title("Choisir Modèles : ")
     checks = []
-    for model in ["resnet 50", "Personnalisé", "yolos tiny", "llama-3 11b", "llama-3 90b"]:
+    for model in ["resnet 50", "EcoMind AI", "yolos tiny", "llama-3 11b", "llama-3 90b"]:
         checks.append(st.sidebar.checkbox(model, key=model, value=True))
         # st.session_state.update({model: checks[-1]})
     # st.markdown("### Soumettez une image pour la classifier selon différents modèles d'IA")
@@ -263,12 +263,12 @@ def main():
                 reponse("ResNet 50", predicted_class, max(probabilities), "https://huggingface.co/microsoft/resnet-50")
                 st.caption(f"Temps d'inférence : {inference_time:.2f} secondes")
         
-        if st.session_state["Personnalisé"]:
+        if st.session_state["EcoMind AI"]:
             with col2:
                 start_time = time.time()
                 predicted_class, probabilities = predict_custom(image)
                 inference_time = time.time() - start_time
-                reponse("Modèle personnalisé", predicted_class, max(probabilities), "https://huggingface.co/dan-lara/Garbage-Classifier-Resnet-50-Finetuning")
+                reponse("EcoMind AI", predicted_class, max(probabilities), "https://huggingface.co/dan-lara/Garbage-Classifier-Resnet-50-Finetuning")
                 sorted_probs = sorted(zip(custom_classes, probabilities), key=lambda x: x[1], reverse=True)
                 st.caption(f"Temps d'inférence : {inference_time:.2f} secondes")
                 with st.expander("Probabilités par classe", expanded=True):
