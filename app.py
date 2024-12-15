@@ -16,7 +16,7 @@ load_dotenv()
 CUSTOM_MODEL_PATH = os.getenv("CUSTOM_MODEL_PATH")
 CUSTOM_MODEL_URL = os.getenv("CUSTOM_MODEL_URL")
 st.set_page_config(
-    page_title="Classification des Déchets",
+    page_title="Classification des Déchets - EcoMind AI",
     page_icon=":recycle:",
     layout="wide",
     initial_sidebar_state="collapsed",
