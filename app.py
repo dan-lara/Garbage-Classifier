@@ -243,16 +243,7 @@ def page_a_propos():
 
     4. **Explorez les Statistiques**
     - Consultez les graphiques et les rapports sur les performances des modèles par classe.
-
-    ## Applications Potentielles
-
-    - **Environnement** : Automatisation du tri des déchets.
-    - **Recherche** : Développement de nouveaux modèles plus précis.
-    - **Éducation** : Sensibilisation au recyclage via des outils interactifs.
-
-    ## Découvrez Maintenant
-
-    Visitez notre site et testez nos outils pour contribuer activement à une meilleure gestion des déchets et à la protection de notre environnement.         
+    
     """
     )
     # st.markdown("Cette application a été développée par [Dan Lara](https://github.com/dan-lara/)")
