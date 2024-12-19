@@ -188,7 +188,68 @@ def page_a_propos():
         size = "large"
     ) 
     st.title("À Propos")
-    st.markdown("#### Cette application a été développée par [Dan Lara](https://github.com/dan-lara/)")
+    st.markdown("""
+    # Comparaison entre Modèles de Classification des Déchets
+
+    Bienvenue sur notre plateforme web, qui vous permet d'explorer et de comparer différents modèles d'intelligence artificielle pour la classification des déchets. Cette application interactive vise à présenter les performances et les caractéristiques des modèles les plus avancés dans ce domaine, en se basant sur le « Garbage Classification Dataset ».
+
+    ## Modèles Comparés
+
+    ### ResNet-50
+    - **Architecture** : Modèle convolutionnel pré-entraîné sur ImageNet.
+    - **Taux de Précision** : 92 % sur le jeu de test.
+    - **Points Forts** : Performances élevées, polyvalence.
+    - **Limitations** : Sensible à la qualité des images.
+    - **Problème** : Généraliste avec 1000 classes d'images
+    - **Lien vers le modèle** : [ResNet-50](https://huggingface.co/microsoft/resnet-50)
+
+    ### ResNet-50 Fine-Tuné
+    - **Architecture** : Modèle convolutionnel avec des connexions résiduelles, pré-entraiîné sur ImageNet.
+    - **Taux de Précision** : 94 % sur le jeu de test.
+    - **Points Forts** : Performances équilibrées, facile à déployer.
+    - **Limitations** : Moins adapté à des classes hors dataset.
+    - **Lien vers le modèle** : [Garbage Classifier ResNet-50 Fine-Tuning](https://huggingface.co/dan-lara/Garbage-Classifier-Resnet-50-Finetuning)
+
+    ### YOLO (You Only Look Once) Tiny
+    - **Architecture** : Modèle à détection rapide et précise.
+    - **Taux de Précision** : Variable selon la version et les ajustements.
+    - **Points Forts** : Idéal pour la détection en temps réel.
+    - **Limitations** : Sensible à la qualité des images.
+    - **Lien vers le modèle** : [YOLOs Tiny](https://huggingface.co/hustvl/yolos-tiny)
+
+    ### Modèle Multimodal (LLM)
+    - **Architecture** : Basé sur des modèles de langage étendus à la vision.
+    - **Modèle** : Llama 3.2 11B et Llama 3.2 90B.
+    - **Points Forts** : Compréhension contextuelle avancée.
+    - **Limitations** : Consommation élevée de ressources.
+    - **Lien vers le modèle** : [Llama 3.2 11B](https://huggingface.co/meta-llama/Llama-3.2-11B-Vision) et [Llama 3.2 90B](https://huggingface.co/meta-llama/Llama-3.2-90B-Vision)
+
+    ## Fonctionnement du Site
+
+    1. **Téléchargez le Dataset**
+    - Accédez au dataset via [Normalized Garbage Dataset for ResNet](https://www.kaggle.com/datasets/danielferreiralara/normalized-garbage-dataset-for-resnet).
+
+    2. **Chargez une Image**
+    - Importez une photo de déchet via l'interface.
+
+    3. **Obtenez les Résultats**
+    - Visualisez les prédictions avec des scores de confiance et comparez les résultats entre modèles.
+
+    4. **Explorez les Statistiques**
+    - Consultez les graphiques et les rapports sur les performances des modèles par classe.
+
+    ## Applications Potentielles
+
+    - **Environnement** : Automatisation du tri des déchets.
+    - **Recherche** : Développement de nouveaux modèles plus précis.
+    - **Éducation** : Sensibilisation au recyclage via des outils interactifs.
+
+    ## Découvrez Maintenant
+
+    Visitez notre site et testez nos outils pour contribuer activement à une meilleure gestion des déchets et à la protection de notre environnement.         
+    """
+    )
+    st.markdown("Cette application a été développée par [Dan Lara](https://github.com/dan-lara/)")
 
 def main():
     # st.image(os.getenv('LOGO_PATH'), width=1000)
