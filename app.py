@@ -255,7 +255,7 @@ def page_a_propos():
     Visitez notre site et testez nos outils pour contribuer activement à une meilleure gestion des déchets et à la protection de notre environnement.         
     """
     )
-    st.markdown("Cette application a été développée par [Dan Lara](https://github.com/dan-lara/)")
+    # st.markdown("Cette application a été développée par [Dan Lara](https://github.com/dan-lara/)")
 
 def main():
     # st.image(os.getenv('LOGO_PATH'), width=1000)
