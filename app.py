@@ -188,42 +188,48 @@ def page_a_propos():
         size = "large"
     ) 
     st.title("À Propos")
+    
     st.markdown("""
     # Comparaison entre Modèles de Classification des Déchets
 
     Bienvenue sur notre plateforme web, qui vous permet d'explorer et de comparer différents modèles d'intelligence artificielle pour la classification des déchets. Cette application interactive vise à présenter les performances et les caractéristiques des modèles les plus avancés dans ce domaine, en se basant sur le « Garbage Classification Dataset ».
 
     ## Modèles Comparés
+    """)
+    with st.container():
+        col1, col2 = st.columns([1, 1])
+        col1.markdown("""
+        ### ResNet-50
+        - **Architecture** : Modèle convolutionnel pré-entraîné sur ImageNet.
+        - **Taux de Précision** : 92 % sur le jeu de test.
+        - **Points Forts** : Performances élevées, polyvalence.
+        - **Limitations** : Sensible à la qualité des images.
+        - **Problème** : Généraliste avec 1000 classes d'images
+        - **Lien vers le modèle** : [ResNet-50](https://huggingface.co/microsoft/resnet-50)
 
-    ### ResNet-50
-    - **Architecture** : Modèle convolutionnel pré-entraîné sur ImageNet.
-    - **Taux de Précision** : 92 % sur le jeu de test.
-    - **Points Forts** : Performances élevées, polyvalence.
-    - **Limitations** : Sensible à la qualité des images.
-    - **Problème** : Généraliste avec 1000 classes d'images
-    - **Lien vers le modèle** : [ResNet-50](https://huggingface.co/microsoft/resnet-50)
+        ### ResNet-50 Fine-Tuné
+        - **Architecture** : Modèle convolutionnel avec des connexions résiduelles, pré-entraiîné sur ImageNet.
+        - **Taux de Précision** : 94 % sur le jeu de test.
+        - **Points Forts** : Performances équilibrées, facile à déployer.
+        - **Limitations** : Moins adapté à des classes hors dataset.
+        - **Lien vers le modèle** : [Garbage Classifier ResNet-50 Fine-Tuning](https://huggingface.co/dan-lara/Garbage-Classifier-Resnet-50-Finetuning)
+        """)
+        col2.markdown("""
+        ### YOLO (You Only Look Once) Tiny
+        - **Architecture** : Modèle à détection rapide et précise.
+        - **Taux de Précision** : Variable selon la version et les ajustements.
+        - **Points Forts** : Idéal pour la détection en temps réel.
+        - **Limitations** : Sensible à la qualité des images.
+        - **Lien vers le modèle** : [YOLOs Tiny](https://huggingface.co/hustvl/yolos-tiny)
 
-    ### ResNet-50 Fine-Tuné
-    - **Architecture** : Modèle convolutionnel avec des connexions résiduelles, pré-entraiîné sur ImageNet.
-    - **Taux de Précision** : 94 % sur le jeu de test.
-    - **Points Forts** : Performances équilibrées, facile à déployer.
-    - **Limitations** : Moins adapté à des classes hors dataset.
-    - **Lien vers le modèle** : [Garbage Classifier ResNet-50 Fine-Tuning](https://huggingface.co/dan-lara/Garbage-Classifier-Resnet-50-Finetuning)
-
-    ### YOLO (You Only Look Once) Tiny
-    - **Architecture** : Modèle à détection rapide et précise.
-    - **Taux de Précision** : Variable selon la version et les ajustements.
-    - **Points Forts** : Idéal pour la détection en temps réel.
-    - **Limitations** : Sensible à la qualité des images.
-    - **Lien vers le modèle** : [YOLOs Tiny](https://huggingface.co/hustvl/yolos-tiny)
-
-    ### Modèle Multimodal (LLM)
-    - **Architecture** : Basé sur des modèles de langage étendus à la vision.
-    - **Modèle** : Llama 3.2 11B et Llama 3.2 90B.
-    - **Points Forts** : Compréhension contextuelle avancée.
-    - **Limitations** : Consommation élevée de ressources.
-    - **Lien vers le modèle** : [Llama 3.2 11B](https://huggingface.co/meta-llama/Llama-3.2-11B-Vision) et [Llama 3.2 90B](https://huggingface.co/meta-llama/Llama-3.2-90B-Vision)
-
+        ### Modèle Multimodal (LLM)
+        - **Architecture** : Basé sur des modèles de langage étendus à la vision.
+        - **Modèle** : Llama 3.2 11B et Llama 3.2 90B.
+        - **Points Forts** : Compréhension contextuelle avancée.
+        - **Limitations** : Consommation élevée de ressources.
+        - **Lien vers le modèle** : [Llama 3.2 11B](https://huggingface.co/meta-llama/Llama-3.2-11B-Vision) et [Llama 3.2 90B](https://huggingface.co/meta-llama/Llama-3.2-90B-Vision)
+        """)
+    st.markdown("""
     ## Fonctionnement du Site
 
     1. **Téléchargez le Dataset**
