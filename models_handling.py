@@ -202,7 +202,7 @@ def reponse(model, label, score, link, time: float = 0.0):
             # st.caption(f"Temps d'inférence : {time:.2f} secondes")
     return block
 
-def plot_prob_graphs(probabilities, top_k=7, color=[[0, "#A8E6A1"], [1, "#1B5E20"]]):
+def plot_prob_graphs(probabilities, top_k=8, color=[[0, "#A8E6A1"], [1, "#1B5E20"]]):
     try:
 
         df_probs = pd.DataFrame(probabilities[0:top_k], columns=["Classe", "Probabilité"])
